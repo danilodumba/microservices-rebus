@@ -1,0 +1,21 @@
+version: '3'
+
+services: 
+    mysql-demo:
+        image: mysql:5.7
+        environment:
+            MYSQL_ROOT_PASSWORD: "demo"
+            MYSQL_DATABASE: "rebus_demo"
+        ports: 
+            - "3307:3306"
+    
+    rabbitmq-demo:
+        image: 'rabbitmq:3.6-management-alpine'
+        environment:
+            RABBITMQ_ERLANG_COOKIE: "SWQOKODSQALRPCLNMEQG"
+            RABBITMQ_DEFAULT_USER: "rabbitmq"
+            RABBITMQ_DEFAULT_PASS: "rabbitmq"
+            RABBITMQ_DEFAULT_VHOST: "/"
+        ports: 
+            - '5672:5672'
+            - '15672:15672'
