@@ -33,7 +33,7 @@ namespace MicroservicesRebus.Pedido.Api.Controllers
 
             await _bus.Publish(evento);
 
-            return Ok("Pedido incluido");
+            return Ok($"Pedido {pedido.Numero} incluido com sucesso.");
         }
 
         [HttpGet("")]

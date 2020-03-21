@@ -28,7 +28,7 @@ namespace MicroservicesRebus.Estoque.Api
         // This method gets called by the runtime. Use this method to add services to the container.
         public void ConfigureServices(IServiceCollection services)
         {
-            var conectionString = Configuration.GetConnectionString("DemoConnection");
+            var conectionString = Configuration.GetConnectionString("EstoqueConnection");
             
             services.AddDbContext<EstoqueContext>(options =>
                     options.UseMySql(conectionString));
@@ -40,8 +40,8 @@ namespace MicroservicesRebus.Estoque.Api
             var fila = "fila_pedido";
 
             services.AddRebus(c => c
-                .Transport(t => t.UseRabbitMq("amqp://rabbitmq:rabbitmq@localhost", fila)) //Configura o RabbitMQ
-            );;
+                .Transport(t => t.UseRabbitMq(Configuration.GetConnectionString("RabbitConnection"), fila)) //Configura o RabbitMQ
+            );
 
             services.AutoRegisterHandlersFromAssemblyOf<RemoverEstoqueEventHandler>();
         }
