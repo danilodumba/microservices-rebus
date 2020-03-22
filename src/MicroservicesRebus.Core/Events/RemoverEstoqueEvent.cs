@@ -3,7 +3,7 @@ using MicroservicesRebus.Core;
 
 namespace MicroservicesRebus.Core
 {
-  public class RemoverEstoqueEvent: Message
+    public class RemoverEstoqueEvent : Message
     {
         public RemoverEstoqueEvent()
         {
@@ -24,7 +24,7 @@ namespace MicroservicesRebus.Core
     {
         public RemoverEstoqueItem()
         {
-            
+
         }
         public RemoverEstoqueItem(int produtoID, int quantidade)
         {

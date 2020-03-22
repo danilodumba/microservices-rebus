@@ -38,7 +38,6 @@ namespace MicroservicesRebus.Estoque.Api
             services.AddControllers();
 
             var fila = "fila_pedido";
-
             services.AddRebus(c => c
                 .Transport(t => t.UseRabbitMq(Configuration.GetConnectionString("RabbitConnection"), fila)) //Configura o RabbitMQ
             );

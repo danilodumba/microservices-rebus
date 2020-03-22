@@ -45,6 +45,7 @@ namespace MicroservicesRebus.Estoque.Api.Events
                 _produtoRepository.Alterar(produto);
             }
 
+            //Grava a baixa do estoque.
             _produtoRepository.Gravar();
 
             _bus.Publish(new EstoqueFinalizadoEvent(message.NumeroPedido));
